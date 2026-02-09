@@ -14,7 +14,7 @@ class Band(models.Model):
     year_formed = models.fields.IntegerField(validators=[MinValueValidator(1900), MaxValueValidator(2021)])
     active = models.fields.BooleanField(default=True)
     official_homepage = models.fields.URLField(null=True, blank=True)
-    like_new = models.fields.BooleanField(default=False)
+    # like_new = models.fields.BooleanField(default=False)
 
     # modifier le rendu des noms d'objets dans l'admin Django en string
     def __str__(self):  
