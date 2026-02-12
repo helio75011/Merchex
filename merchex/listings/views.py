@@ -39,6 +39,24 @@ def band_create(request):
                 {'form': form})
 
 
+def band_update(request, id):
+        band = Band.objects.get(id=id)
+
+        if request.method == 'POST':
+                form = BandForm(instance=band)  # on pré-remplir le formulaire avec un groupe existant
+                if form.is_valid():
+                        # mettre à jour le groupe existant dans la base de données
+                        form.save()
+                        # rediriger vers la page détaillée du groupe que nous venons de mettre à jour
+                        return redirect('band-detail', band.id)
+        else:
+                form = BandForm(instance=band)
+
+        return render(request,
+                'listings/band_update.html',
+                {'form': form})
+
+
 def contact(request):
         if request.method == 'POST':
                 # créer une instance de notre formulaire et le remplir avec les données POST
