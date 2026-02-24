@@ -1,3 +1,308 @@
-/* * { 
-    background: red 
-} */
+/* Reset et styles de base */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    color: #333;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    min-height: 100vh;
+    padding-bottom: 40px;
+}
+
+/* Navigation */
+nav {
+    background: rgba(255, 255, 255, 0.95);
+    padding: 1.5rem 2rem;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    margin-bottom: 2rem;
+    display: flex;
+    gap: 2rem;
+    align-items: center;
+}
+
+nav a {
+    color: #667eea;
+    text-decoration: none;
+    font-weight: 600;
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+nav a:hover {
+    background: #667eea;
+    color: white;
+    transform: translateY(-2px);
+}
+
+nav a::before {
+    content: '🎵';
+    margin-right: 0.5rem;
+}
+
+nav a:nth-child(2)::before {
+    content: '➕';
+}
+
+nav a:nth-child(3)::before {
+    content: '✉️';
+}
+
+/* Conteneur principal */
+main {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 0 2rem;
+}
+
+/* Titres */
+h1, h2 {
+    color: white;
+    margin-bottom: 1.5rem;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+h1 {
+    font-size: 2.5rem;
+    border-bottom: 3px solid rgba(255, 255, 255, 0.3);
+    padding-bottom: 0.5rem;
+}
+
+h2 {
+    font-size: 2rem;
+}
+
+/* Listes de groupes */
+ul {
+    list-style: none;
+    background: white;
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
+}
+
+ul li {
+    padding: 1rem;
+    margin-bottom: 0.8rem;
+    background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+    border-radius: 8px;
+    transition: all 0.3s ease;
+    border-left: 4px solid #667eea;
+}
+
+ul li:hover {
+    transform: translateX(10px);
+    box-shadow: 0 3px 15px rgba(102, 126, 234, 0.3);
+}
+
+ul li a {
+    color: #667eea;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+ul li a:hover {
+    text-decoration: underline;
+}
+
+ul li a[href*="modifier"] {
+    color: #f59e0b;
+    font-size: 0.9rem;
+    margin-left: 0.5rem;
+}
+
+ul li a[href*="delete"],
+ul li a[href*="suprimer"] {
+    color: #ef4444;
+    font-size: 0.9rem;
+    margin-left: 0.5rem;
+}
+
+/* Détails du groupe */
+.band-details {
+    background: white;
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
+    margin-top: 1rem;
+}
+
+p {
+    background: white;
+    padding: 1.5rem;
+    border-radius: 8px;
+    margin-bottom: 1rem;
+    line-height: 1.8;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Formulaires */
+form {
+    background: white;
+    padding: 2.5rem;
+    border-radius: 10px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
+    margin-top: 1rem;
+}
+
+form p {
+    margin-bottom: 1.5rem;
+    background: transparent;
+    padding: 0;
+    box-shadow: none;
+}
+
+form label {
+    display: block;
+    margin-bottom: 0.5rem;
+    color: #667eea;
+    font-weight: 600;
+}
+
+form input[type="text"],
+form input[type="email"],
+form input[type="url"],
+form input[type="number"],
+form select,
+form textarea {
+    width: 100%;
+    padding: 0.8rem;
+    border: 2px solid #e5e7eb;
+    border-radius: 5px;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+    font-family: inherit;
+}
+
+form input:focus,
+form select:focus,
+form textarea:focus {
+    outline: none;
+    border-color: #667eea;
+    box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+}
+
+form textarea {
+    min-height: 120px;
+    resize: vertical;
+}
+
+/* Boutons */
+input[type="submit"],
+a[href*="band-update"],
+a[href*="band-delete"],
+a[href*="band-list"] {
+    display: inline-block;
+    padding: 0.8rem 2rem;
+    background: #667eea;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    margin-right: 1rem;
+    margin-top: 0.5rem;
+}
+
+input[type="submit"]:hover {
+    background: #5568d3;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+}
+
+input[type="submit"]:active {
+    transform: translateY(0);
+}
+
+a[href*="band-update"] {
+    background: #f59e0b;
+}
+
+a[href*="band-update"]:hover {
+    background: #d97706;
+}
+
+a[href*="band-delete"],
+a[href*="Suprimer"] {
+    background: #ef4444;
+}
+
+a[href*="band-delete"]:hover,
+a[href*="Suprimer"]:hover {
+    background: #dc2626;
+}
+
+a[href*="band-list"]:not(nav a) {
+    background: #6b7280;
+}
+
+a[href*="band-list"]:not(nav a):hover {
+    background: #4b5563;
+}
+
+/* Messages d'erreur du formulaire */
+.errorlist {
+    background: #fee2e2;
+    border-left: 4px solid #ef4444;
+    padding: 0.8rem 1rem;
+    margin-bottom: 1rem;
+    border-radius: 5px;
+}
+
+.errorlist li {
+    color: #dc2626;
+    background: transparent;
+    padding: 0.2rem 0;
+    margin: 0;
+    border: none;
+    transform: none;
+}
+
+/* Texte d'aide */
+.helptext {
+    font-size: 0.85rem;
+    color: #6b7280;
+    margin-top: 0.3rem;
+    display: block;
+}
+
+/* Checkboxes */
+input[type="checkbox"] {
+    width: auto;
+    margin-right: 0.5rem;
+    cursor: pointer;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    nav {
+        flex-direction: column;
+        gap: 1rem;
+        padding: 1rem;
+    }
+
+    main {
+        padding: 0 1rem;
+    }
+
+    h1 {
+        font-size: 2rem;
+    }
+
+    ul, form, p {
+        padding: 1.5rem;
+    }
+
+    ul li {
+        font-size: 0.9rem;
+    }
+}
