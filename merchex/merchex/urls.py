@@ -17,15 +17,19 @@ Including another URLconf
 
 from django.contrib import admin
 from django.urls import path
-from listings import views
+# from listings import views
+import authentification.views
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
+    # path('admin/', admin.site.urls),
 
-    path('bands/', views.band_list, name='band-list'),
-    path('bands/<int:id>/', views.band_detail, name='band-detail'), # ajouter ce motif sous notre autre motif de groupes
-    path('bands/add/', views.band_create, name='band-create'), 
-    path('bands/<int:id>/change/', views.band_update, name='band-update'), 
-    path('bands/<int:id>/delete/', views.band_delete, name='band-delete'), 
-    path('contact-us/', views.contact, name='contact'),
+    # path('bands/', views.band_list, name='band-list'),
+    # path('bands/<int:id>/', views.band_detail, name='band-detail'), # ajouter ce motif sous notre autre motif de groupes
+    # path('bands/add/', views.band_create, name='band-create'), 
+    # path('bands/<int:id>/change/', views.band_update, name='band-update'), 
+    # path('bands/<int:id>/delete/', views.band_delete, name='band-delete'), 
+    # path('contact-us/', views.contact, name='contact'),
+
+    path('admin/', admin.site.urls),
+    path('', authentification.views.login_page, name='login'),    
 ]
